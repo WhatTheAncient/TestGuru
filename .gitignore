@@ -40,3 +40,6 @@ yarn-debug.log*
 
 #Ignore /.idea directory.
 .idea/**
+
+#Ignore *.xml files.
+*.xml
