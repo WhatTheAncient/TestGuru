@@ -31,6 +31,8 @@ Here is the list of real world objects, which i will use in this project:
 
 * Answer
 
-* Test User
+* User
 
-* Test Admin
+* Categories
+
+* Result
