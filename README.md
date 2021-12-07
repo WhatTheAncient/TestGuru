@@ -22,3 +22,15 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Here is the list of real world objects, which i will use in this project:
+
+* Test
+
+* Question
+
+* Answer
+
+* Test User
+
+* Test Admin
