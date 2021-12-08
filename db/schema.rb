@@ -16,28 +16,29 @@ ActiveRecord::Schema.define(version: 2021_12_08_142837) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.string "title", limit: 25
+    t.string "title", limit: 25, null: false
     t.integer "question_id"
+    t.boolean "correct", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title", limit: 30
+    t.string "title", limit: 30, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "title", limit: 50
+    t.string "title", limit: 50, null: false
     t.integer "test_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string "title", limit: 30
-    t.integer "level"
+    t.string "title", limit: 30, null: false
+    t.integer "level", default: 1
     t.integer "category_id"
     t.integer "author_id"
     t.datetime "created_at", precision: 6, null: false
@@ -45,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_12_08_142837) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", limit: 40
+    t.string "name", limit: 40, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
