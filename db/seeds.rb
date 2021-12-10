@@ -69,16 +69,16 @@ answers = [
 ]
 
 results = [
-  { user_id: 3, test_id: 1, start: true },
-  { user_id: 3, test_id: 2, start: true, finish: true },
-  { user_id: 3, test_id: 3, start: true },
-  { user_id: 4, test_id: 2, start: true, finish: true },
-  { user_id: 4, test_id: 4, start: true, finish: true },
-  { user_id: 4, test_id: 6, start: true },
-  { user_id: 4, test_id: 8, start: true, finish: true },
-  { user_id: 5, test_id: 1, start: true, finish: true },
-  { user_id: 5, test_id: 5, start: true },
-  { user_id: 5, test_id: 7, start: true, finish: true }
+  { user_id: 3, test_id: 1, started: true },
+  { user_id: 3, test_id: 2, started: true, finished: true },
+  { user_id: 3, test_id: 3, started: true },
+  { user_id: 4, test_id: 2, started: true, finished: true },
+  { user_id: 4, test_id: 4, started: true, finished: true },
+  { user_id: 4, test_id: 6, started: true },
+  { user_id: 4, test_id: 8, started: true, finished: true },
+  { user_id: 5, test_id: 1, started: true, finished: true },
+  { user_id: 5, test_id: 5, started: true },
+  { user_id: 5, test_id: 7, started: true, finished: true }
 ]
 
 Category.create(categories)
