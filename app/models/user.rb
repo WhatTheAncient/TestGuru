@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
   def get_started_tests(level)
-    Test.joins("JOIN results ON results.test_id = tests.id").where("tests.level = ? AND results.started = ? AND results.finished = ? AND results.user_id = #{self.id}", level, true, false)
+    Test.joins("JOIN results ON results.test_id = tests.id").where("tests.level = ? AND results.finished = ? AND results.user_id = #{self.id}", level, false)
   end
 
   def get_complited_tests(level)
