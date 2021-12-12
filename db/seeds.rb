@@ -83,16 +83,16 @@ answers = [
 Answer.create!(answers)
 
 results = [
-  { user_id: users_id[2], test_id: tests_id[0], started: true },
-  { user_id: users_id[2], test_id: tests_id[1], started: true, finished: true },
-  { user_id: users_id[2], test_id: tests_id[2], started: true },
-  { user_id: users_id[3], test_id: tests_id[1], started: true, finished: true },
-  { user_id: users_id[3], test_id: tests_id[3], started: true, finished: true },
-  { user_id: users_id[3], test_id: tests_id[5], started: true },
-  { user_id: users_id[3], test_id: tests_id[7], started: true, finished: true },
-  { user_id: users_id[4], test_id: tests_id[0], started: true, finished: true },
-  { user_id: users_id[4], test_id: tests_id[4], started: true },
-  { user_id: users_id[4], test_id: tests_id[6], started: true, finished: true }
+  { user_id: users_id[2], test_id: tests_id[0] },
+  { user_id: users_id[2], test_id: tests_id[1] },
+  { user_id: users_id[2], test_id: tests_id[2] },
+  { user_id: users_id[3], test_id: tests_id[1] },
+  { user_id: users_id[3], test_id: tests_id[3] },
+  { user_id: users_id[3], test_id: tests_id[5] },
+  { user_id: users_id[3], test_id: tests_id[7] },
+  { user_id: users_id[4], test_id: tests_id[0] },
+  { user_id: users_id[4], test_id: tests_id[4] },
+  { user_id: users_id[4], test_id: tests_id[6] }
 ]
 
 Result.create(results)
