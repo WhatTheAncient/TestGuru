@@ -25,8 +25,10 @@ users_id = []
 tests_id = []
 questions_id = []
 
-Category.create!(categories).each { |category| categories_id << category.id }
-User.create!(users).each { |user| users_id << user.id }
+Category.create!(categories)
+categories_id = Category.ids.sort
+User.create!(users).each
+users_id = User.ids.sort
 
 tests = [
   { title: 'HTML', category_id: categories_id[1], author_id: users_id[1] },
@@ -35,11 +37,12 @@ tests = [
   { title: 'Data Structures', level: 2, category_id:  categories_id[0], author_id: users_id[1] },
   { title: 'Ruby', level: 2, category_id:  categories_id[0], author_id: users_id[1] },
   { title: 'Rails', level: 3, category_id:  categories_id[0], author_id: users_id[1] },
-  { title: 'Linear Algebra', level: 4, category_id:  categories_id[1], author_id: users_id[0] },
-  { title: 'Discrete Math', level: 3, category_id:  categories_id[1], author_id: users_id[0] },
+  { title: 'Linear Algebra', level: 4, category_id:  categories_id[2], author_id: users_id[0] },
+  { title: 'Discrete Math', level: 3, category_id:  categories_id[2], author_id: users_id[0] },
 ]
 
-Test.create!(tests).each { |test| tests_id << test.id }
+Test.create!(tests)
+tests_id = Test.ids.sort
 
 questions = [
   { title: 'What <b> block does?', test_id: tests_id[0] },
@@ -52,7 +55,8 @@ questions = [
   { title: 'Select existing graph types:', test_id: tests_id[7] },
 ]
 
-Question.create!(questions).each { |question| questions_id << question.id }
+Question.create!(questions)
+questions_id = Question.ids.sort
 
 answers = [
   { title: 'Make text cursive', question_id: questions_id[0] },
