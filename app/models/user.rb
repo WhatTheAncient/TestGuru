@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  belongs_to :test
   has_many :results
   has_many :tests, through: :results
   def get_tests_history(level) #Returns started and finished tests
