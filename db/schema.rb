@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_12_10_135527) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "title", limit: 100, null: false
+    t.string "title", null: false
     t.bigint "test_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -41,8 +41,6 @@ ActiveRecord::Schema.define(version: 2021_12_10_135527) do
   create_table "results", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "test_id", null: false
-    t.boolean "started", default: false, null: false
-    t.boolean "finished", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["test_id"], name: "index_results_on_test_id"
