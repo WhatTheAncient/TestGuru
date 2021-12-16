@@ -1,10 +1,11 @@
 class User < ApplicationRecord
-  belongs_to :test
-  has_many :results
-  has_many :tests, through: :results
+
+  has_many :results, dependent: :destroy
+  has_many :tests, through: :results, dependent: :destroy
+
   def get_tests_history(level) #Returns started and finished tests
-    Test.joins("JOIN results ON results.test_id = tests.id")
-        .where(results: { user_id: self.id }, tests: { level: level })
+    self.tests
+        .where(level: level)
   end
 
 end
