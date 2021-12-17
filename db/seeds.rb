@@ -91,4 +91,4 @@ results = [
   { user: users[4], test: tests[6] }
 ]
 
-Result.create!(results
+Result.create!(results)
