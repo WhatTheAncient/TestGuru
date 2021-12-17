@@ -1,11 +1,9 @@
 class User < ApplicationRecord
-
   has_many :results, dependent: :destroy
-  has_many :tests, through: :results, dependent: :destroy
+  has_many :created_tests, inverse_of: :author, class_name: 'Test', foreign_key: 'author_id'
+  has_many :tests, through: :results
 
-  def get_tests_history(level) #Returns started and finished tests
-    self.tests
-        .where(level: level)
+  def tests_history(level) #Returns started and finished tests
+    tests.where(level: level)
   end
-
 end

@@ -79,16 +79,16 @@ answers = [
 Answer.create!(answers)
 
 results = [
-  { user_id: users[2], test: tests[0] },
-  { user_id: users[2], test: tests[1] },
-  { user_id: users[2], test: tests[2] },
-  { user_id: users[3], test: tests[1] },
-  { user_id: users[3], test: tests[3] },
-  { user_id: users[3], test: tests[5] },
-  { user_id: users[3], test: tests[7] },
-  { user_id: users[4], test: tests[0] },
-  { user_id: users[4], test: tests[4] },
-  { user_id: users[4], test: tests[6] }
+  { user: users[2], test: tests[0] },
+  { user: users[2], test: tests[1] },
+  { user: users[2], test: tests[2] },
+  { user: users[3], test: tests[1] },
+  { user: users[3], test: tests[3] },
+  { user: users[3], test: tests[5] },
+  { user: users[3], test: tests[7] },
+  { user: users[4], test: tests[0] },
+  { user: users[4], test: tests[4] },
+  { user: users[4], test: tests[6] }
 ]
 
-Result.create(results)
+Result.create!(results)
