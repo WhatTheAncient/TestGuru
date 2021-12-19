@@ -1,10 +1,8 @@
 class CreateResults < ActiveRecord::Migration[6.1]
   def change
     create_table :results do |t|
-      t.references :user, null:false, foreign_key: true
-      t.references :test, null:false, foreign_key: true
-      t.boolean :started, null: false, default: false
-      t.boolean :finished, null: false, default: false
+      t.belongs_to :user, null: false, foreign_key: true
+      t.belongs_to :test, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -1,8 +1,10 @@
 class User < ApplicationRecord
+  has_many :created_tests, inverse_of: :author, class_name: 'Test',
+                           foreign_key: 'author_id', dependent: :destroy
+  has_many :results, dependent: :destroy
+  has_many :tests, through: :results
 
-  def get_tests_history(level) #Returns started and finished tests
-    Test.joins("JOIN results ON results.test_id = tests.id")
-        .where(results: { user_id: self.id }, tests: { level: level })
+  def tests_history(level) #Returns started and finished tests
+    tests.where(level: level)
   end
-
 end
