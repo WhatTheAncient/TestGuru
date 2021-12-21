@@ -13,11 +13,11 @@ categories = [
 ]
 
 users = [
-  { name: 'Math Teacher' },
-  { name: 'Programming Teacher' },
-  { name: 'John' },
-  { name: 'Vladimir' },
-  { name: 'Anna' }
+  { name: 'Math Teacher', email: 'math_teacher@rambler.com' },
+  { name: 'Programming Teacher', email: 'programming_teacher@google.com' },
+  { name: 'John', email: 'john_2000@google.com' },
+  { name: 'Vladimir', email: 'vladimir_an@yandex.ru' },
+  { name: 'Anna', email: 'ann_1999@yandex.ru' }
 ]
 
 categories = Category.create!(categories)
