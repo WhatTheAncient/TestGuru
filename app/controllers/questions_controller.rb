@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index show destroy]
+  before_action :find_test, only: %i[index show create]
   before_action :find_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -15,23 +15,27 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.create!(title: question_params[:question][:title], test_id: question_params[:test_id])
-
-    render plain: "New question is added to #{params[:test_id]} test."
+    @question = @test.questions.new(question_params)
+    if @question.save
+      render plain: "New question is added to #{params[:test_id]} test."
+    else
+      render :new
+    end
   end
 
   def destroy
     @question.destroy
+    redirect_to test_questions_path
   end
 
   private
 
   def question_params
-    params.permit({ question: [:title] }, :test_id, :id)
+    params.require(:question).permit(:id, :title)
   end
 
   def find_test
-    @test = Test.find(question_params[:test_id])
+    @test = Test.find(params[:test_id])
   end
 
   def find_question
