@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index show create]
+  before_action :find_test, only: %i[index new create]
   before_action :find_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -10,28 +10,25 @@ class QuestionsController < ApplicationController
     render inline: '<p> <%= @test.questions.pluck(:title) %> </p>'
   end
 
-  def show
-    render inline: '<p> <%= @question.title %> </p>'
-  end
+  # Я убрал метод show так как он по умолчанию работает
 
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      render plain: "New question is added to #{params[:test_id]} test."
+      render :show
     else
       render :new
     end
   end
 
   def destroy
-    @question.destroy
-    redirect_to test_questions_path
+    redirect_to test_questions_path(@question.destroy.test_id)
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:id, :title)
+    params.require(:question).permit(:title)
   end
 
   def find_test
@@ -39,7 +36,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = @test.questions.find(question_params[:id])
+    @question = Question.find(params[:id])
   end
 
   def rescue_with_question_not_found
