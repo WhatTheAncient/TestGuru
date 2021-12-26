@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -26,12 +28,12 @@ users = User.create!(users)
 tests = [
   { title: 'HTML', category: categories[0], author: users[1] },
   { title: 'CSS', category: categories[1], author: users[1] },
-  { title: 'Algorithms', level: 3, category:  categories[2], author: users[0] },
-  { title: 'Data Structures', level: 2, category:  categories[0], author: users[1] },
+  { title: 'Algorithms', level: 3, category: categories[2], author: users[0] },
+  { title: 'Data Structures', level: 2, category: categories[0], author: users[1] },
   { title: 'Ruby', level: 2, category:  categories[0], author: users[1] },
-  { title: 'Rails', level: 3, category:  categories[0], author: users[1] },
-  { title: 'Linear Algebra', level: 4, category:  categories[2], author: users[0] },
-  { title: 'Discrete Math', level: 3, category:  categories[2], author: users[0] },
+  { title: 'Rails', level: 3, category: categories[0], author: users[1] },
+  { title: 'Linear Algebra', level: 4, category: categories[2], author: users[0] },
+  { title: 'Discrete Math', level: 3, category: categories[2], author: users[0] }
 ]
 
 tests = Test.create!(tests)
@@ -44,11 +46,10 @@ questions = [
   { title: 'Which class is superclass for Class?', test: tests[4] },
   { title: 'Which module is responsible for working with database?', test: tests[5] },
   { title: 'What is Gram matrix?', test: tests[6] },
-  { title: 'Select existing graph types:', test: tests[7] },
+  { title: 'Select existing graph types:', test: tests[7] }
 ]
 
 questions = Question.create!(questions)
-
 
 answers = [
   { title: 'Make text cursive', question: questions[0] },
@@ -73,7 +74,7 @@ answers = [
   { title: 'Matrix of scalar multiplication in linear space', correct: true, question: questions[6] },
   { title: 'Linked', correct: true, question: questions[7] },
   { title: 'Not linked', correct: true, question: questions[7] },
-  { title: 'Double-linked', question: questions[7] },
+  { title: 'Double-linked', question: questions[7] }
 ]
 
 Answer.create!(answers)
