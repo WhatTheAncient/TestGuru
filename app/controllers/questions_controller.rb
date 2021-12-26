@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index new create]
+  before_action :find_test, only: %i[new create]
   before_action :find_question, only: %i[show edit destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-
-  def index
-    @questions = @test.questions
-  end
 
   def show
     render :show
@@ -32,7 +28,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    redirect_to test_questions_path(@question.destroy.test_id)
+    redirect_to test_path(@question.test)
   end
 
   private
