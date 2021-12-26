@@ -2,16 +2,24 @@
 
 class QuestionsController < ApplicationController
   before_action :find_test, only: %i[index new create]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_question, only: %i[show edit destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render inline: '<p> <%= @test.questions.pluck(:title) %> </p>'
+    @questions = @test.questions
   end
 
   def show
     render :show
+  end
+
+  def new
+    @question = Question.new
+  end
+
+  def edit
+    render :edit
   end
 
   def create
