@@ -10,12 +10,14 @@ class QuestionsController < ApplicationController
     render inline: '<p> <%= @test.questions.pluck(:title) %> </p>'
   end
 
-  # Я убрал метод show так как он по умолчанию работает
+  def show
+    render :show
+  end
 
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      render :show
+      redirect_to @question
     else
       render :new
     end
