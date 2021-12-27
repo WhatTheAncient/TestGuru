@@ -1,11 +1,10 @@
 <footer>
   <p>
     This project created at <%= current_year %> by Dmitry Stepanov.
-    Project files are <%= github_url('here', 'WhatTheAncient', 'TestGuru') %>
+    Project files are <%= github_url(text: 'here', author: 'WhatTheAncient', repo: 'TestGuru') %>
     Here you can create, edit and take the tests.
     This is
-    <a href="https://thinknetica.com" target="_blank" rel="nofollow" rel="noopener">
-      educational project at the Thinknetica online school
-    </a>.
+    <%= link_to 'educational project at the Thinknetica online school', 'https://thinknetica.com',
+                target: '_blank', rel: 'nofollow', rel: 'noopener' %>
   </p>
 </footer>
