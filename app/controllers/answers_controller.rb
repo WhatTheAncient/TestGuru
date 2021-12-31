@@ -6,18 +6,16 @@ class AnswersController < ApplicationController
     @answers = Answer.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @answer = Answer.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
-    @answer = @question.answer.new(answer_params)
+    @answer = @question.answers.new(answer_params)
 
     if @answer.save
       redirect_to @answer
