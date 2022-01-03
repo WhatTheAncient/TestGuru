@@ -10,7 +10,6 @@ class Result < ApplicationRecord
   
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
-
     save!
   end
 
@@ -18,13 +17,17 @@ class Result < ApplicationRecord
     current_question.nil?
   end
 
+  def score
+    correct_questions / test.questions.count * 100
+  end
+
   def passed?
-    correct_questions / test.questions.count >= ENTRY_THRESHOLD
+    score >= ENTRY_THRESHOLD
   end
 
   private
 
-  ENTRY_THRESHOLD = 0.85
+  ENTRY_THRESHOLD = 85
 
   def correct_answers
     current_question.answers.correct
