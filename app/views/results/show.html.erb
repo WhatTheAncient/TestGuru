@@ -1,4 +1,5 @@
 <h1>Passing the <%= @result.test.title %> test</h1>
+<h2>Question: <%= @result.test.questions.sort.index(@result.current_question) + 1 %> / <%= @result.test.questions.count %></h2>
 <b>
   <%= @result.current_question.title %>
 </b>
