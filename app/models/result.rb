@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Result < ApplicationRecord
+  ENTRY_THRESHOLD = 85
+
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', foreign_key: :current_question_id, optional: true
@@ -17,7 +19,7 @@ class Result < ApplicationRecord
   end
 
   def score
-    correct_questions / test.questions.count * 100
+    correct_questions / test.questions.count.to_f * 100
   end
 
   def passed?
@@ -26,14 +28,16 @@ class Result < ApplicationRecord
 
   private
 
-  ENTRY_THRESHOLD = 85
-
   def correct_answers
     current_question.answers.correct
   end
 
   def correct_answer?(answer_ids)
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    if answer_ids.nil?
+      false
+    else
+      correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    end
   end
 
   def next_question
