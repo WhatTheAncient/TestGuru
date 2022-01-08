@@ -1,0 +1,9 @@
+<h1 style="color: <%= @result.passed? ? "green" : "red"%>">
+  <% if @result.passed? %>
+  You successfully passed test! Your score: <%= @result.score %> %
+  <% else %>
+  You don't pass the test! Your score: <%= @result.score %> %
+  <% end %>
+</h1>
+
+<%= link_to 'Tests', tests_path %>

@@ -7,10 +7,13 @@ class User < ApplicationRecord
   has_many :tests, through: :results
 
   validates :name, presence: true
-  validates :email, presence: true, format: { with: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/i }
+  validates :email, presence: true, format: URI::MailTo::EMAIL_REGEXP
 
-  # Returns started and finished tests
   def tests_history(level)
     tests.where(level: level)
+  end
+
+  def result(test)
+    results.order(id: :desc).find_by(test_id: test.id)
   end
 end
