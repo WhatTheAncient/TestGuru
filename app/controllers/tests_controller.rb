@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_test, only: %i[show start]
   before_action :find_user, only: %i[start]
 
@@ -26,7 +27,7 @@ class TestsController < ApplicationController
   end
 
   def find_user
-    @user = User.find(3)
+    @user = @current_user
   end
   
   def rescue_with_test_not_found
