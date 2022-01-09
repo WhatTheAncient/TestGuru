@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root to: 'tests#index'
+
   get :signup, to: 'users#new'
   get :login, to: 'sessions#new'
-  get :exit, to: 'sessions#exit'
+  delete :exit, to: 'sessions#destroy'
 
   resources :tests do
     resources :questions, shallow: true, except: :index do
