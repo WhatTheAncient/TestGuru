@@ -6,8 +6,7 @@ class User < ApplicationRecord
   has_many :results, dependent: :destroy
   has_many :tests, through: :results
 
-  validates :name, presence: true
-  validates :email, presence: true, format: URI::MailTo::EMAIL_REGEXP
+  has_secure_password
 
   def tests_history(level)
     tests.where(level: level)
