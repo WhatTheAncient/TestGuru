@@ -15,11 +15,11 @@ categories = [
 ]
 
 users = [
-  { name: 'Math Teacher', email: 'math_teacher@rambler.com', password_digest: 'PasswordForMath' },
-  { name: 'Programming Teacher', email: 'programming_teacher@google.com', password_digest: 'PasswordForProgramming' },
-  { name: 'John', email: 'john_2000@google.com', password_digest: 'PasswordForJohn' },
-  { name: 'Vladimir', email: 'vladimir_an@yandex.ru', password_digest: 'PasswordForVladimir' },
-  { name: 'Anna', email: 'ann_1999@yandex.ru', password_digest: 'PasswordForAnna' }
+  { name: 'Math Teacher', email: 'math_teacher@rambler.com', password: 'aAasfda1q2' },
+  { name: 'Programming Teacher', email: 'programming_teacher@google.com', password: 'basdf123' },
+  { name: 'John', email: 'john_2000@google.com', password: 'qwefq323aAc' },
+  { name: 'Vladimir', email: 'vladimir_an@yandex.ru', password: 'dadfs12Q' },
+  { name: 'Anna', email: 'ann_1999@yandex.ru', password: 'eQWd1245' }
 ]
 
 categories = Category.create!(categories)

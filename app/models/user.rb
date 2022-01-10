@@ -1,12 +1,18 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :confirmable,
+         :trackable,
+         :validatable
+
   has_many :created_tests, inverse_of: :author, class_name: 'Test',
                            foreign_key: 'author_id', dependent: :destroy
   has_many :results, dependent: :destroy
   has_many :tests, through: :results
-
-  has_secure_password
 
   def tests_history(level)
     tests.where(level: level)
