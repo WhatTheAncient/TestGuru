@@ -19,6 +19,10 @@ class ResultsController < ApplicationController
     request_result = GistQuestionService.new(@result.current_question).call
 
     flash_options = if request_result
+                      current_user.gists.create!(
+                        url: request_result.html_url,
+                        question: @result.current_question
+                      )
                       { notice: t('.success', link: request_result.html_url) }
                     else
                       { alert: t('.failure') }
