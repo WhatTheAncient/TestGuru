@@ -3,3 +3,8 @@ ru:
   gist_question_service:
     gist_params:
       description: "Вопрос по теме %{title} от ТестГуру"
+
+  results:
+    gist:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"

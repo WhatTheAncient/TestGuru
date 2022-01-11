@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     member do
       get :result
       post :start
+      post :gist
     end
   end
 

@@ -34,3 +34,8 @@ en:
   gist_question_service:
     gist_params:
       description: "A question about %{title} from TestGuru"
+
+  results:
+    gist:
+      success: "Gist successfully saved!"
+      failure: "During gist save an error has occurred."
