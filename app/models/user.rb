@@ -13,6 +13,7 @@ class User < ApplicationRecord
                            foreign_key: 'author_id', dependent: :destroy
   has_many :results, dependent: :destroy
   has_many :tests, through: :results
+  has_many :gists, dependent: :destroy
 
   def tests_history(level)
     tests.where(level: level)
