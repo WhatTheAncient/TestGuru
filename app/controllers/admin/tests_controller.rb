@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
-class Admin::TestsController < ApplicationController
-  before_action :authenticate_user!
+class Admin::TestsController < Admin::BaseController
   before_action :find_test, only: %i[show start]
-
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
     @tests = Test.all
@@ -28,11 +25,6 @@ class Admin::TestsController < ApplicationController
     end
   end
 
-  def start
-    current_user.tests.push(@test)
-    redirect_to current_user.result(@test)
-  end
-
   def destroy
     @test.destroy
     redirect_to admin_tests_path
@@ -42,10 +34,6 @@ class Admin::TestsController < ApplicationController
 
   def find_test
     @test = Test.find(params[:id])
-  end
-  
-  def rescue_with_test_not_found
-    render plain: 'Test not found'
   end
 
   def test_params
