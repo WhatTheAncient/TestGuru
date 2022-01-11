@@ -10,9 +10,15 @@ module TestGuru
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+
+    ENV['GITHUB_ACCESS_TOKEN'] = credentials.config[:github_access_token]
+
     config.time_zone = "Moscow"
+
     config.i18n.available_locales = [:en, :ru]
     config.default_locale = :ru
+
+    config.autoload_paths << "#{Rails.root}/lib/clients"
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

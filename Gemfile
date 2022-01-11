@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 #gem 'bcrypt', '~> 3.1.7'
 # Authorization
 gem 'devise', '~> 4.0'
+#Networking
+gem 'faraday'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
