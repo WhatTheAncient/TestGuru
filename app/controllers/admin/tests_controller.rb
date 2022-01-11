@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 class Admin::TestsController < Admin::BaseController
-  before_action :find_test, only: %i[show start]
-
   def index
     @tests = Test.all
   end
 
   def show
+    @test = Test.find(params[:id])
     @questions = @test.questions
   end
 
@@ -31,10 +30,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   private
-
-  def find_test
-    @test = Test.find(params[:id])
-  end
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id)
