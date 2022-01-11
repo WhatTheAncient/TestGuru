@@ -37,5 +37,5 @@ en:
 
   results:
     gist:
-      success: "Gist successfully saved!"
+      success: "Gist successfully saved! Link to resource: %{link}"
       failure: "During gist save an error has occurred."

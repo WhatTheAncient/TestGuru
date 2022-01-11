@@ -18,8 +18,8 @@ class ResultsController < ApplicationController
   def gist
     request_result = GistQuestionService.new(@result.current_question).call
 
-    flash_options = if request_result.success?
-                      { notice: t('.success') }
+    flash_options = if request_result
+                      { notice: t('.success', link: request_result.html_url) }
                     else
                       { alert: t('.failure') }
                     end

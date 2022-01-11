@@ -6,5 +6,5 @@ ru:
 
   results:
     gist:
-      success: "Gist успешно сохранен!"
+      success: "Gist успешно сохранен! Ссылка на ресурс: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
