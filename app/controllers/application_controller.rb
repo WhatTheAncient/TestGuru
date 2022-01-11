@@ -1,21 +1,9 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user,
-                :logged_in?
+  protect_from_forgery with: :exception
 
   private
 
-  def authenticate_user!
-    unless current_user
-      cookies[:url_before_login] = request.original_url
-      redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please!' unless current_user
-    end
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    current_user.present?
+  def after_sign_in_path_for(resource)
+    current_user.is_a?(Admin) ? admin_tests_path : tests_path
   end
 end
