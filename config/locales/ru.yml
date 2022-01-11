@@ -1,2 +1,5 @@
 ru:
   hello: "Привет мир!"
+  gist_question_service:
+    gist_params:
+      description: "Вопрос по теме %{title} от ТестГуру"
