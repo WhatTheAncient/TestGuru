@@ -35,7 +35,7 @@ en:
     gist_params:
       description: "A question about %{title} from TestGuru"
 
-  results:
-    gist:
+  gists:
+    create:
       success: "Gist successfully saved! Link to resource: %{link}"
       failure: "During gist save an error has occurred."

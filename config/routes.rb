@@ -14,9 +14,10 @@ Rails.application.routes.draw do
     member do
       get :result
       post :start
-      post :gist
     end
   end
+
+  resource :gists, only: :create
 
   namespace :admin do
     resources :gists, only: :index

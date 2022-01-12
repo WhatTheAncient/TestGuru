@@ -4,7 +4,7 @@ ru:
     gist_params:
       description: "Вопрос по теме %{title} от ТестГуру"
 
-  results:
-    gist:
+  gists:
+    create:
       success: "Gist успешно сохранен! Ссылка на ресурс: %{link}"
       failure: "Во время сохранения gist произошла ошибка"
