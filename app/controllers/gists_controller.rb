@@ -3,7 +3,7 @@ class GistsController < ApplicationController
     @result = Result.find(params[:result_id])
     request_result = GistQuestionService.new(@result.current_question).call
 
-    flash_options = if request_result
+    flash_options = if request_result.success?
                       current_user.gists.create!(
                         url: request_result.html_url,
                         question: @result.current_question

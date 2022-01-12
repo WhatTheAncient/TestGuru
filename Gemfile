@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # Authorization
 gem 'devise', '~> 4.0'
 #Working with Environment
-gem 'dotenv'
+gem 'dotenv-rails'
 #Github Client
 gem 'octokit'
 # Use Active Storage variant

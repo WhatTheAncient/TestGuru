@@ -1,5 +1,5 @@
 module GistsHelper
-  def hash(url)
+  def hash_gist(url)
     /\w{7,}/.match(url)
   end
 end
