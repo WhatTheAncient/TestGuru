@@ -23,8 +23,8 @@ gem 'jbuilder', '~> 2.7'
 #gem 'bcrypt', '~> 3.1.7'
 # Authorization
 gem 'devise', '~> 4.0'
-#Networking
-gem 'faraday'
+#Working with Environment
+gem 'dotenv'
 #Github Client
 gem 'octokit'
 # Use Active Storage variant

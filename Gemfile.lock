@@ -86,6 +86,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.6)
     erubi (1.10.0)
     faraday (1.9.3)
       faraday-em_http (~> 1.0)
@@ -256,7 +257,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.0)
-  faraday
+  dotenv
   jbuilder (~> 2.7)
   letter_opener
   listen (~> 3.3)
