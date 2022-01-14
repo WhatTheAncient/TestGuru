@@ -23,8 +23,6 @@ gem 'jbuilder', '~> 2.7'
 #gem 'bcrypt', '~> 3.1.7'
 # Authorization
 gem 'devise', '~> 4.0'
-#Working with Environment
-gem 'dotenv-rails'
 #Github Client
 gem 'octokit'
 # Use Active Storage variant
@@ -36,7 +34,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
+  #Working with Environment
+  gem 'dotenv-rails'
+  #Working with email confirmation
   gem 'letter_opener'
 end
 
