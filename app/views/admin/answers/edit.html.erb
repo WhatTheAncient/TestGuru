@@ -6,5 +6,5 @@
 
 <%= render 'form', answer: @answer %>
 
-<%= button_to 'Show', @answer %> |
-<%= button_to 'Back', admin_question_path(@answer.question) %>
+<%= button_to 'Show', @answer, method: :get %> |
+<%= button_to 'Back', admin_question_path(@answer.question), method: :get %>

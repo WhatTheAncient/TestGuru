@@ -3,7 +3,7 @@
     <p class="nav user"> Welcome, <b><%= current_user.name %></b> Guru </p>
     <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
   <% else %>
-    <%= button_to 'Test Guru', root_path %>
+    <%= button_to 'Test Guru', root_path, method: :get %>
     <%= button_to 'Sign Up', new_user_registration_path %>
     <%= button_to 'Log In', new_user_session_path %>
   <% end %>

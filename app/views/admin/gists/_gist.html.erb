@@ -1,5 +1,5 @@
 <tr>
-  <td style="text-align: center"><%= button_to truncate(gist.question.title, length: 25), [:admin, gist.question] %></td>
-  <td style="text-align: center"><%= button_to hash_gist(gist.url) %></td>
+  <td style="text-align: center"><%= link_to truncate(gist.question.title, length: 25), [:admin, gist.question] %></td>
+  <td style="text-align: center"><%= link_to hash_gist(gist.url) %></td>
   <td style="text-align: center"><%= gist.user.email %></td>
 </tr>
