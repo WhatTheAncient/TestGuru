@@ -21,12 +21,10 @@ function sortRowsByTitle() {
         sortedRows.sort(compareRowsAsc)
         arrowUp.classList.remove('hide')
         arrowDown.classList.add('hide')
-        console.log(arrowUp.classList, arrowDown.classList)
     } else {
         sortedRows.sort(compareRowsDesc)
         arrowDown.classList.remove('hide')
         arrowUp.classList.add('hide')
-        console.log(arrowUp.classList, arrowDown.classList)
     }
 
     const sortedTable = document.createElement('table')
