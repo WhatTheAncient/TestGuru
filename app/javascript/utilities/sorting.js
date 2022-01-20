@@ -27,15 +27,11 @@ function sortRowsByTitle() {
         arrowUp.classList.add('hide')
     }
 
-    const sortedTable = document.createElement('table')
-    sortedTable.classList.add('table')
-    sortedTable.appendChild(rows[0])
 
     for (let i = 0; i < sortedRows.length; i++) {
-        sortedTable.appendChild(sortedRows[i])
+        table.insertAdjacentElement('beforeend', sortedRows[i])
     }
 
-    table.parentNode.replaceChild(sortedTable, table)
 }
 
 function compareRowsAsc(row1, row2) {
