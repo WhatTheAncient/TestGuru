@@ -12,6 +12,7 @@ function sortRowsByTitle() {
 
     for (let i = 1; i < rows.length; i++) {
         sortedRows.push(rows[i])
+        table.lastChild.removeChild(rows[i])
     }
 
     const arrowUp = document.querySelector('.octicon-arrow-up')
@@ -29,7 +30,7 @@ function sortRowsByTitle() {
 
 
     for (let i = 0; i < sortedRows.length; i++) {
-        table.insertAdjacentElement('beforeend', sortedRows[i])
+        table.lastChild.appendChild(sortedRows[i])
     }
 
 }
