@@ -1,7 +1,7 @@
 <li>
   <%= answer.title %><br>
   <%= button_to 'Show', admin_answer_path(answer), method: :get %>
-  <%= button_to 'Edit', edit_admin_answer_path(answer) %>
+  <%= button_to 'Edit', edit_admin_answer_path(answer), method: :get %>
   <%= button_to 'Delete', admin_answer_path(answer),
               method: :delete,
               data: { confirm: 'Are you sure?' }%>

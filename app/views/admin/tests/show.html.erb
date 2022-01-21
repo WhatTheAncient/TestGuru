@@ -3,4 +3,4 @@
   <%= render @questions %>
 </ul>
 <%= button_to 'Tests', admin_tests_path, method: :get %>
-<%= button_to 'New question', new_admin_test_question_path(@test) %>
+<%= button_to 'New question', new_admin_test_question_path(@test), method: :get %>

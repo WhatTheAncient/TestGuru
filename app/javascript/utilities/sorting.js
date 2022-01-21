@@ -1,19 +1,16 @@
 document.addEventListener('turbolinks:load', function() {
     const control = document.querySelector('.sort-by-title')
 
-    if (control) { control.addEventListener('click', sortRowsByTitle) }
+    if (control) control.addEventListener('click', sortRowsByTitle)
 })
 
 function sortRowsByTitle() {
     const table = document.querySelector('table')
 
-    const rows = table.querySelectorAll('tr')
+    const tableBody = table.querySelector('tbody')
     let sortedRows = []
 
-    for (let i = 1; i < rows.length; i++) {
-        sortedRows.push(rows[i])
-        table.lastChild.removeChild(rows[i])
-    }
+    tableBody.querySelectorAll('tr').forEach((element) => sortedRows.push(element))
 
     const arrowUp = document.querySelector('.octicon-arrow-up')
     const arrowDown = document.querySelector('.octicon-arrow-down')
@@ -28,11 +25,11 @@ function sortRowsByTitle() {
         arrowUp.classList.add('hide')
     }
 
+    const sortedTableBody = document.createElement('tbody')
 
-    for (let i = 0; i < sortedRows.length; i++) {
-        table.lastChild.appendChild(sortedRows[i])
-    }
+    sortedRows.forEach((element) => sortedTableBody.appendChild(element))
 
+    table.replaceChild(sortedTableBody, tableBody)
 }
 
 function compareRowsAsc(row1, row2) {
