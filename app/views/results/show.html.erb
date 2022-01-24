@@ -13,6 +13,7 @@
     </p>
   <% end %>
 
-  <p><%= link_to 'Gist Question', gists_path(result_id: @result.id), method: :post %></p>
   <p><%= form.submit 'Next' %></p>
+
+  <p><%= link_to 'Gist Question', gists_path(result_id: @result.id), method: :post %></p>
 <% end %>

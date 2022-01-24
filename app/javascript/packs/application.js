@@ -11,3 +11,9 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import 'bootstrap'
+import '../../assets/stylesheets/application.scss'
+
+require ('utilities/sorting')
+require ('utilities/password_confirmating')
