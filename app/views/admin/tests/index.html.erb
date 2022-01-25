@@ -2,6 +2,8 @@
 
 <%= button_to 'New test', new_admin_test_path, method: :get %><br><br>
 
+<%= render 'shared/errors', resource: @test %>
+
 <table class="table">
   <thead>
     <tr>
