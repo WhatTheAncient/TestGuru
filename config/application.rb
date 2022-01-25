@@ -14,7 +14,8 @@ module TestGuru
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    ENV['GITHUB_ACCESS_TOKEN'] = credentials.config[:github_access_token]
+    ENV['GITHUB_ACCESS_TOKEN'] = credentials.config[:development][:github_access_token]
+    ENV['PASSWORD_FOR_DATABASE'] = credentials.config[:development][:password_for_database]
 
     config.time_zone = "Moscow"
 
