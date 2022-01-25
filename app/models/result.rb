@@ -26,6 +26,10 @@ class Result < ApplicationRecord
     score >= ENTRY_THRESHOLD
   end
 
+  def current_question_number
+    test.questions.sort.index(current_question)
+  end
+
   private
 
   def correct_answers

@@ -1,5 +1,8 @@
 <h1>Passing the <%= @result.test.title %> test</h1>
-<h2>Question: <%= @result.test.questions.sort.index(@result.current_question) + 1 %> / <%= @result.test.questions.count %></h2>
+<h2>Question: <%= @result.current_question_number + 1 %> / <%= @result.test.questions.count %></h2>
+
+<progress class="progress-bar progress-bar-striped" value=0 data-progress-value= <%= @result.current_question_number %>
+                                data-max-value= <%= @result.test.questions.count %> ></progress>
 
 <p>
 <b><%= @result.current_question.title %></b>
@@ -13,7 +16,7 @@
     </p>
   <% end %>
 
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit 'Next', class: 'submit-progress' %></p>
 
   <p><%= link_to 'Gist Question', gists_path(result_id: @result.id), method: :post %></p>
 <% end %>
