@@ -1,8 +1,11 @@
 <h1>Passing the <%= @result.test.title %> test</h1>
 <h2>Question: <%= @result.current_question_number + 1 %> / <%= @result.test.questions.count %></h2>
 
-<progress class="progress-bar progress-bar-striped" value=0 data-progress-value= <%= @result.current_question_number %>
-                                data-max-value= <%= @result.test.questions.count %> ></progress>
+<div class="progress">
+  <%= content_tag :div, class: 'progress-bar', data: { progress_value: @result.current_question_number,
+                                                       max_value: @result.test.questions.count } do %>
+  <% end %>
+</div>
 
 <p>
 <b><%= @result.current_question.title %></b>
