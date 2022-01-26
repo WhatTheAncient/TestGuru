@@ -7,7 +7,7 @@ class ResultsController < ApplicationController
   def update
     @result.accept!(params[:answer_ids])
     if @result.completed?
-      @result.set_badges
+      @result.set_badges if @result.passed?
       redirect_to result_result_path(@result)
     else
       render :show

@@ -61,8 +61,17 @@ class Result < ApplicationRecord
 
   def received_badges
     badges = []
-    if user.results.where(test: test).length == 1 && passed?
+    if user.results.where(test: test).length == 1
       badges << Badge.where(category: "First Try", params: test.title)
+    end
+    if user.tests.where(category: test.category).uniq.length == Test.where(category: test.category).length
+      badges << Badge.where(category: "All Category", params: test.category.title)
+    end
+    if user.tests.where(level: test.level).uniq.length == Test.where(level: test.level).length
+      badges << Badge.where(category: "All Level", params: test.level.to_s)
+    end
+    if user.tests.uniq.length == Test.all.length
+      badges << Badge.where(category: "All Tests")
     end
     badges
   end
