@@ -1,0 +1,10 @@
+<tr>
+  <td><%= badge.title %></td>
+  <td><%= badge.category.title %></td>
+  <td><%= badge.params %></td>
+  <td><img src="<%=badge.image %>"></td>
+  <td><%= link_to 'Show', admin_badge_path(badge), class: 'btn' %></td>
+  <td><%= link_to 'Edit', edit_admin_badge_path(badge), class: 'btn' %></td>
+  <td><%= link_to 'Delete', admin_badge_path(badge), class: 'btn',
+                  method: :delete,  data: { confirm: 'Are you sure?' } %></td>
+</tr>

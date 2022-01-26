@@ -1,4 +1,5 @@
 class Badge < ApplicationRecord
+  belongs_to :category, class_name: 'BadgeCategory', foreign_key: :category_id, inverse_of: :badges
   has_and_belongs_to_many :users
 
   def self.fetch_received(result)
@@ -19,10 +20,13 @@ class Badge < ApplicationRecord
       all_tests:
         { condition: user.tests.uniq.length == Test.all.length,
           params: nil }
-    }.freeze
+    }
 
     receive_conditions.each do |category, data|
-      badges << Badge.where(category: to_s_format(category), params: data[:params]) if data[:condition]
+      if data[:condition]
+        badge = Badge.find_by(category: BadgeCategory.where(title: to_s_format(category)), params: data[:params])
+        badges << badge
+      end
     end
 
     badges
