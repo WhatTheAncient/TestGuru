@@ -1,5 +1,4 @@
 class Badge < ApplicationRecord
-  has_many :results
-  has_many :users, through: :results
+  has_and_belongs_to_many :users
 
 end

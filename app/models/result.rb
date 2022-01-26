@@ -5,7 +5,6 @@ class Result < ApplicationRecord
 
   belongs_to :test
   belongs_to :user
-  belongs_to :badge
   belongs_to :current_question, class_name: 'Question', foreign_key: :current_question_id, optional: true
 
   before_validation :before_validation_set_current_question
@@ -31,6 +30,10 @@ class Result < ApplicationRecord
     test.questions.sort.index(current_question)
   end
 
+  def set_badge
+    self.user.badges = received_badges
+  end
+
   private
 
   def correct_answers
@@ -54,5 +57,9 @@ class Result < ApplicationRecord
 
   def before_validation_set_current_question
     self.current_question = next_question
+  end
+
+  def received_badges
+
   end
 end
