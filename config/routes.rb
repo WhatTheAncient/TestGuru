@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     post :start, on: :member
   end
 
+  resources :badges, only: :index do
+    get :achievements, on: :collection
+  end
+
   resources :results, only: %i[show update] do
     member do
       get :result
