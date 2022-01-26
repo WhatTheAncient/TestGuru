@@ -30,8 +30,8 @@ class Result < ApplicationRecord
     test.questions.sort.index(current_question)
   end
 
-  def set_badge
-    self.user.badges = received_badges
+  def set_badges
+    user.badges.append(received_badges)
   end
 
   private
@@ -60,6 +60,10 @@ class Result < ApplicationRecord
   end
 
   def received_badges
-
+    badges = []
+    if user.results.where(test: test).length == 1 && passed?
+      badges << Badge.where(category: "First Try", params: test.title)
+    end
+    badges
   end
 end
