@@ -2,5 +2,6 @@
 <ul>
   <%= render @questions %>
 </ul>
-<%= button_to 'Tests', admin_tests_path, method: :get %>
-<%= button_to 'New question', new_admin_test_question_path(@test), method: :get %>
+<%= link_to 'Tests', admin_tests_path, class: 'btn' %>
+<%= link_to 'Edit', edit_admin_test_path, class: 'btn' %>
+<%= link_to 'New question', new_admin_test_question_path(@test), class: 'btn'%>

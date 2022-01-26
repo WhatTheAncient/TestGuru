@@ -17,3 +17,5 @@ import '../../assets/stylesheets/application.scss'
 
 require ('utilities/sorting')
 require ('utilities/password_confirmating')
+require ('utilities/form_inline')
+require ('utilities/progress_bar')
