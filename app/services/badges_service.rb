@@ -1,10 +1,16 @@
 class BadgesService
-  attr_reader :badges
+  RECEIVE_CONDITIONS = {
+    first_try: BadgesSpecifications::FirstTry,
+    all_category: BadgesSpecifications::AllCategory,
+    all_level: BadgesSpecifications::AllLevel
+  }.freeze
 
   def initialize(result)
     @result = result
-    @test = result.test
     @badges = []
+  end
+
+  def badges
     set_received_badges
   end
 
@@ -14,27 +20,11 @@ class BadgesService
   attr_accessor :test
 
   def set_received_badges
-    RECEIVE_CONDITIONS.each do |rule, data|
-      if data[:condition].is_satisfied_by? @result
-        badge = Badge.find_by(rule: ApplicationController.helpers.to_s_titleized(rule),
-                              rule_params: eval(data[:rule_params]))
-        badges << badge
-      end
+    Badge.select do |badge|
+      condition = RECEIVE_CONDITIONS[FormatService.to_sym_formatted(badge.rule)].new(result: @result, badge: badge)
+      @badges << badge if condition.satisfied?
     end
-  end
 
-  RECEIVE_CONDITIONS = {
-    first_try:
-      { condition: Spec::BadgeSpec::FirstTry.new,
-        rule_params: 'test.title' },
-    all_category:
-      { condition: Spec::BadgeSpec::AllCategory.new,
-        rule_params: 'test.category.title' },
-    all_level:
-      { condition: Spec::BadgeSpec::AllLevel.new,
-        rule_params: 'test.level.to_s' },
-    all_tests:
-      { condition: Spec::BadgeSpec::AllTests.new,
-        rule_params: 'nil' }
-  }.freeze
+    @badges
+  end
 end

@@ -11,7 +11,7 @@ class Test < ApplicationRecord
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
-  scope :tests_with_category, lambda { |category_title|
+  scope :with_category, lambda { |category_title|
                                 joins(:category).where(category: { title: category_title })
                                                 .order(tests: :desc)
                               }
@@ -20,6 +20,6 @@ class Test < ApplicationRecord
   scope :hard, -> { where(level: 4..Float::INFINITY) }
 
   def self.names_from_category(category_title)
-    tests_with_category(category_title).pluck(:title)
+    with_category(category_title).pluck(:title)
   end
 end
