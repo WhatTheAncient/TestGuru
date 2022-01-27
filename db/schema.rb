@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2022_01_27_084118) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "badges_specifications", force: :cascade do |t|
+  create_table "badges", force: :cascade do |t|
     t.string "title", limit: 100, null: false
     t.string "image", null: false
     t.datetime "created_at", precision: 6, null: false
