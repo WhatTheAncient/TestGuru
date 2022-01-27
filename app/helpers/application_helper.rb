@@ -10,4 +10,8 @@ module ApplicationHelper
   def flash_message(type)
     content_tag :p, flash[type], class: "flash #{type.to_s}" if flash[type]
   end
+
+  def to_s_titleized(symbol)
+    symbol.to_s.split('_').join(' ').titleize
+  end
 end

@@ -1,7 +1,7 @@
 <tr>
   <td><%= badge.title %></td>
-  <td><%= badge.category.title %></td>
-  <td><%= badge.params %></td>
+  <td><%= badge.rule %></td>
+  <td><%= badge.rule_params %></td>
   <td><img src="<%=badge.image %>"></td>
   <td><%= link_to 'Show', admin_badge_path(badge), class: 'btn' %></td>
   <td><%= link_to 'Edit', edit_admin_badge_path(badge), class: 'btn' %></td>

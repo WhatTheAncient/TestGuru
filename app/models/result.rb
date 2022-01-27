@@ -30,10 +30,6 @@ class Result < ApplicationRecord
     test.questions.sort.index(current_question)
   end
 
-  def set_badges
-    user.badges.append(Badge.fetch_received(self))
-  end
-
   private
 
   def correct_answers
