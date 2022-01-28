@@ -15,7 +15,7 @@ class Result < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    current_question.nil? || time_up?
   end
 
   def score
@@ -28,6 +28,10 @@ class Result < ApplicationRecord
 
   def current_question_number
     test.questions.sort.index(current_question)
+  end
+
+  def time_up?
+    (created_at + (test.timer * 60).seconds) < Time.current
   end
 
   private
