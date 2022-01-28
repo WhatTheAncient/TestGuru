@@ -31,7 +31,11 @@ class Result < ApplicationRecord
   end
 
   def time_up?
-    (created_at + (test.timer * 60).seconds) < Time.current
+    time_left <= 0
+  end
+
+  def time_left
+    test.timer - (Time.current - created_at).to_i
   end
 
   private
