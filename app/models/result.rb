@@ -31,11 +31,13 @@ class Result < ApplicationRecord
   end
 
   def time_up?
-    time_left <= 0
+    time_left.zero?
   end
 
   def time_left
-    test.timer - (Time.current - created_at).to_i
+    lefted_time = test.timer * 60 - (Time.current - created_at).to_i if test.timer?
+
+    lefted_time.positive? ? lefted_time : 0
   end
 
   private

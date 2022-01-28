@@ -9,12 +9,12 @@
   <h4 class="float-start">
     Question: <%= @result.current_question_number + 1 %> / <%= @result.test.questions.count %>
   </h4>
-  <h4 class="timer float-end">Time left: <%= @result.time_up? ?  "00:00" : formatted_timer(@result.time_left) %></h4>
+  <h4 class="timer float-end" data-time-total="<%= @result.time_left %>">></h4>
 </div>
 
 <div class="clearfix"></div>
 
-<p class="">
+<p>
     <b><%= @result.current_question.title %></b>
 </p>
 
