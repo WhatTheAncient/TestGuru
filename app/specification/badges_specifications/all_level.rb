@@ -1,9 +1,11 @@
 module BadgesSpecifications
-  class AllLevel < BadgeSpecification
-    def satisfied?
-      level = @badge.rule_params.to_i
+  class AllLevel < AbstractBadgeSpecification
+    def satisfies?
+      level = @rule_params.to_i
+      user_tests = @result.user.tests.where(level: level).ids
+      existing_tests = Test.where(level: level).ids
 
-      @result.user.tests.where(level: level).uniq.length == Test.where(level: level).length
+      existing_tests == user_tests.uniq && user_tests.group_by(&:itself).values.map(&:size).uniq.size == 1
     end
   end
 end

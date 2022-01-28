@@ -15,7 +15,12 @@ class Result < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    if current_question.nil?
+      record_total
+      true
+    else
+      false
+    end
   end
 
   def score

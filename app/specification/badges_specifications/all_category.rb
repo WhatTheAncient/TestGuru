@@ -1,9 +1,11 @@
 module BadgesSpecifications
-  class AllCategory
-    def satisfied?
-      category = Category.find_by(title: @badge.rule_params)
+  class AllCategory < AbstractBadgeSpecification
+    def satisfies?
+      category = Category.find_by(title: @rule_params)
+      user_tests = @result.user.tests.where(category: category).ids
+      existing_tests = Test.where(category: category).ids
 
-      @result.user.tests.where(category: category).uniq.length == Test.where(category: category).length
+      existing_tests == user_tests.uniq && user_tests.group_by(&:itself).values.map(&:size).uniq.size == 1
     end
   end
 end
