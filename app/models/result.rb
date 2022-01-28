@@ -22,8 +22,9 @@ class Result < ApplicationRecord
     correct_questions / test.questions.count.to_f * 100
   end
 
-  def passed?
-    score >= ENTRY_THRESHOLD
+  def record_total
+    self.passed = (score >= ENTRY_THRESHOLD)
+    save!
   end
 
   def current_question_number
