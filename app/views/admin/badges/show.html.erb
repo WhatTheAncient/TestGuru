@@ -1,0 +1,12 @@
+<h1><%= @badge.title %> Badge </h1>
+
+<h2>Category: <%= @badge.rule %></h2>
+
+<h2>Params: <%= @badge.rule_params %></h2>
+
+<h2>Image:</h2>
+<img src="<%= @badge.image %>">
+
+<%= link_to 'Edit', edit_admin_badge_path %>
+<%= link_to 'Delete', admin_badge_path, method: :delete, data: { confirm: 'Are you sure?'} %>
+<%= link_to 'Back', admin_badges_path %>

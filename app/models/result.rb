@@ -15,15 +15,21 @@ class Result < ApplicationRecord
   end
 
   def completed?
-    current_question.nil? || time_up?
+    if current_question.nil?
+      record_total
+      true
+    else
+      false
+    end
   end
 
   def score
     correct_questions / test.questions.count.to_f * 100
   end
 
-  def passed?
-    score >= ENTRY_THRESHOLD
+  def record_total
+    self.passed = (score >= ENTRY_THRESHOLD)
+    save!
   end
 
   def current_question_number
