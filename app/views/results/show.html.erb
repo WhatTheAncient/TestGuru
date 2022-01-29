@@ -1,14 +1,21 @@
-<h1>Passing the <%= @result.test.title %> test</h1>
-<h2>Question: <%= @result.current_question_number + 1 %> / <%= @result.test.questions.count %></h2>
-
 <div class="progress">
   <%= content_tag :div, class: 'progress-bar', data: { progress_value: @result.current_question_number,
                                                        max_value: @result.test.questions.count } do %>
   <% end %>
 </div>
 
+<div>
+  <h1>Passing the <%= @result.test.title %> test</h1>
+  <h4 class="float-start">
+    Question: <%= @result.current_question_number + 1 %> / <%= @result.test.questions.count %>
+  </h4>
+  <h4 class="timer float-end" data-time-total="<%= @result.time_left %>">></h4>
+</div>
+
+<div class="clearfix"></div>
+
 <p>
-<b><%= @result.current_question.title %></b>
+    <b><%= @result.current_question.title %></b>
 </p>
 
 <%= form_with url: result_path(@result), local: true, method: :put do |form|%>

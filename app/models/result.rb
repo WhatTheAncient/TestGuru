@@ -36,6 +36,16 @@ class Result < ApplicationRecord
     test.questions.sort.index(current_question)
   end
 
+  def time_up?
+    time_left.zero?
+  end
+
+  def time_left
+    lefted_time = test.timer * 60 - (Time.current - created_at).to_i if test.timer?
+
+    lefted_time.positive? ? lefted_time : 0
+  end
+
   private
 
   def correct_answers
