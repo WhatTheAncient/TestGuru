@@ -13,6 +13,7 @@ class User < ApplicationRecord
                            foreign_key: 'author_id', dependent: :destroy
   has_many :results, dependent: :destroy
   has_many :tests, through: :results
+  has_and_belongs_to_many :badges
   has_many :gists, dependent: :destroy
 
   def tests_history(level)

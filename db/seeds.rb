@@ -26,7 +26,7 @@ categories = Category.create!(categories)
 users = User.create!(users)
 
 tests = [
-  { title: 'HTML', category: categories[0], author: users[1] },
+  { title: 'HTML', category: categories[1], author: users[1] },
   { title: 'CSS', category: categories[1], author: users[1] },
   { title: 'Algorithms', level: 3, category: categories[2], author: users[0] },
   { title: 'Data Structures', level: 2, category: categories[0], author: users[1] },
