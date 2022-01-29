@@ -9,7 +9,7 @@ class BadgesDeliveryService
     @result = result
   end
 
-  def build
+  def call
     Badge.select do |badge|
       condition = RECEIVE_CONDITIONS[FormatService.to_sym_formatted(badge.rule)].new(result: @result,
                                                                                      rule_params: badge.rule_params)
