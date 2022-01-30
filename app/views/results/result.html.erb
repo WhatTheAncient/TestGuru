@@ -1,5 +1,5 @@
 <h1 class="result" style="color: <%= @result.passed? ? "green" : "red"%>">
-  <% if @result.passed? %>
+  <% if @result.passed %>
   You successfully passed test! Your score: <%= @result.score %> %
   <% else %>
   You don't pass the test! Your score: <%= @result.score %> %

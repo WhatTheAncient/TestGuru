@@ -15,7 +15,7 @@ class Result < ApplicationRecord
   end
 
   def completed?
-    if current_question.nil?
+    if current_question.nil? || time_up?
       record_total
       true
     else
